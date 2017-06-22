@@ -75,7 +75,7 @@ class Cook < Employee
   end
 end
 
-class PizzaParlorEmployeeVisitor
+class PizzaParlorEmployeeReportVisitor
   def visit(employee)
     a = employee.class
     case [a]
@@ -115,12 +115,13 @@ class PizzaParlorEmployeeVisitor
   end
 end
 
+
 pp = PizzaParlor.new('Pizza Planet')
 ca = Cashier.new('Becky')
 co = Cook.new('Tony')
 m = Manager.new('Rick', pp)
 emp = Employee.new('Mike')
-ppev = PizzaParlorEmployeeVisitor.new
+ppev = PizzaParlorEmployeeReportVisitor.new
 employees = [ca, co, m, emp]
 pp.employees = employees.each do |e|
   [*1..5].sample.times {e.work}
